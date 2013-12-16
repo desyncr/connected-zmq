@@ -5,7 +5,7 @@
     "require" : {
         "php" : ">=5.3.0",
         "desyncr/connected" : "dev-master",
-        "cboden/Ratchet": "0.3.*",
+        "cboden/Ratchet": "0.2.8",
         "react/zmq" : "0.2.*"
     },
     "autoload": {
