@@ -5,7 +5,7 @@ use Desyncr\Connected\Zmq\Service\ZmqService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class GearmanServiceFactory extends Connected\AbstractServiceFactory implements FactoryInterface {
+class ZmqServiceFactory extends Connected\AbstractServiceFactory implements FactoryInterface {
     protected $configuration_key = 'zmq-adapter';
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
