@@ -1,6 +1,8 @@
 <?php
 namespace Desyncr\Connected\Zmq\Daemon;
-use React, React\Socket, Ratchet, ZMQ;
+use React;
+use Ratchet;
+use ZMQ;
 
 class WebsocketDaemon {
     protected $broker_bind = 'tcp://127.0.0.1:5555';
@@ -33,11 +35,9 @@ class WebsocketDaemon {
         $webSock = new React\Socket\Server($loop);
         $webSock->listen($port, $bind);
         $webServer = new Ratchet\Server\IoServer(
-            new Ratchet\Http\HttpServer(
-                new Ratchet\WebSocket\WsServer(
-                    new Ratchet\Wamp\WampServer(
-                        $pusher
-                    )
+            new Ratchet\WebSocket\WsServer(
+                new Ratchet\Wamp\WampServer(
+                    $pusher
                 )
             ),
             $webSock
