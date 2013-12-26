@@ -4,6 +4,8 @@ use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\WampServerInterface;
 
 class PusherDaemon implements WampServerInterface {
+    protected $session = null;
+
     /**
      * A lookup of all the topics clients have subscribed to
      */
@@ -22,12 +24,17 @@ class PusherDaemon implements WampServerInterface {
     public function onNotification($entry) {
         $entryData = json_decode($entry, true);
 
+        $channel = $entryData['id'];
+        if (isset($entryData['session'])) {
+            $channel .= $entryData['session'];
+        }
+
         // If the lookup topic object isn't set there is no one to publish to
-        if (!array_key_exists($entryData['id'], $this->subscribedTopics)) {
+        if (!array_key_exists($channel, $this->subscribedTopics)) {
             return;
         }
 
-        $topic = $this->subscribedTopics[$entryData['id']];
+        $topic = $this->subscribedTopics[$channel];
 
         // re-send the data to all the clients subscribed to that category
         $topic->broadcast($entryData);
@@ -41,7 +48,9 @@ class PusherDaemon implements WampServerInterface {
     }
     public function onCall(ConnectionInterface $conn, $id, $topic, array $params) {
         // In this application if clients send data it's because the user hacked around in console
-        $conn->callError($id, $topic, 'You are not allowed to make calls')->close();
+        // $conn->callError($id, $topic, 'You are not allowed to make calls')->close();
+        $this->session = $params[0];
+        $conn->callResult($id, array('session', $this->session, 'id' => $id));
     }
     public function onPublish(ConnectionInterface $conn, $topic, $event, array $exclude, array $eligible) {
         // In this application if clients send data it's because the user hacked around in console
