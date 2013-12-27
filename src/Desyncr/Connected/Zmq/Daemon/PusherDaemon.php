@@ -4,7 +4,7 @@ use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\WampServerInterface;
 
 class PusherDaemon implements WampServerInterface {
-    protected $session = null;
+    protected $sessions = null;
 
     /**
      * A lookup of all the topics clients have subscribed to
@@ -25,19 +25,22 @@ class PusherDaemon implements WampServerInterface {
         $entryData = json_decode($entry, true);
 
         $channel = $entryData['id'];
-        if (isset($entryData['session'])) {
-            $channel .= $entryData['session'];
-        }
 
-        // If the lookup topic object isn't set there is no one to publish to
-        if (!array_key_exists($channel, $this->subscribedTopics)) {
+        if (!isset($entryData['target'])) {
+            if (array_key_exists($channel, $this->subscribedTopics)) {
+                $topic = $this->subscribedTopics[$channel];
+                $topic->broadcast($entryData);
+            }
             return;
         }
 
-        $topic = $this->subscribedTopics[$channel];
-
-        // re-send the data to all the clients subscribed to that category
-        $topic->broadcast($entryData);
+        foreach ($entryData['target'] as $target) {
+            $chan = $channel . $this->sessions[$target];
+            if (array_key_exists($chan, $this->subscribedTopics)) {
+                $topic = $this->subscribedTopics[$chan];
+                $topic->broadcast($entryData);
+            }
+        }
     }
 
     public function onUnSubscribe(ConnectionInterface $conn, $topic) {
@@ -49,8 +52,8 @@ class PusherDaemon implements WampServerInterface {
     public function onCall(ConnectionInterface $conn, $id, $topic, array $params) {
         // In this application if clients send data it's because the user hacked around in console
         // $conn->callError($id, $topic, 'You are not allowed to make calls')->close();
-        $this->session = $params[0];
-        $conn->callResult($id, array('session', $this->session, 'id' => $id));
+        $this->sessions[$params[1]] = $params[0];
+        $conn->callResult($id, array('session' => $params[0], 'user' => $params[1], 'id' => $id));
     }
     public function onPublish(ConnectionInterface $conn, $topic, $event, array $exclude, array $eligible) {
         // In this application if clients send data it's because the user hacked around in console
