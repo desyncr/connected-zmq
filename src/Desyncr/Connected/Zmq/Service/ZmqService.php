@@ -27,7 +27,6 @@ class ZmqService extends AbstractService
         if ($this->socket->connect($this->addr)) {
 
             foreach ($this->frames as $frame) {
-                var_dump($frame->serialize());
                 $this->socket->send($frame->serialize());
             }
 
