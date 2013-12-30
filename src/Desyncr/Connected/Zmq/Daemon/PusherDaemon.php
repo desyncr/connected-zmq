@@ -40,6 +40,10 @@ class PusherDaemon implements WampServerInterface
             return;
         }
         foreach ($entryData['targets']['id'] as $target) {
+            if (!isset($this->sessions[$target])) {
+                continue;
+            }
+
             $chan = $channel . $this->sessions[$target];
             if (array_key_exists($chan, $this->subscribedTopics)) {
                 $topic = $this->subscribedTopics[$chan];
