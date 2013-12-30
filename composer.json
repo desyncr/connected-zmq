@@ -1,6 +1,6 @@
 {
     "name": "desyncr/connected-zmq",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Zend2 Module for realtime and persistent notifications - zmq adapter",
     "type": "module",
     "license": "GPL-3.0+",
