@@ -1,7 +1,9 @@
 <?php
 return array(
-    'factories' => array(
-        'Desyncr\Connected\Zmq\Service\ZmqService'  => 'Desyncr\Connected\Zmq\Factory\ZmqServiceFactory'
+    'server_manager' => array(
+        'factories' => array(
+            'Desyncr\Connected\Zmq\Service\ZmqService'  => 'Desyncr\Connected\Zmq\Factory\ZmqServiceFactory'
+        ),
     ),
 
     'controllers' => array(
