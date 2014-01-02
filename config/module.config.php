@@ -1,8 +1,11 @@
 <?php
 return array(
-    'server_manager' => array(
+    'service_manager' => array(
         'factories' => array(
-            'Desyncr\Connected\Zmq\Service\ZmqService'  => 'Desyncr\Connected\Zmq\Factory\ZmqServiceFactory'
+            'Desyncr\Connected\Zmq\Service\ZmqService' => 'Desyncr\Connected\Zmq\Factory\ZmqServiceFactory',
+            'Desyncr\Connected\Zmq\Client\ZmqClient'  => function($sm) {
+                return new \ZMQContext();
+            }
         ),
     ),
 
