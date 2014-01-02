@@ -14,7 +14,7 @@ class DaemonController extends AbstractActionController
         if (!$request instanceof ConsoleRequest) {
             throw new \RuntimeException('You can call this action from a webspace');
         }
-        $instance = new WebsocketDaemon();
+        $instance = $this->getServiceLocator()->get('Desyncr\Connected\Zmq\Daemon\WebsocketDaemon');
         $instance->execute($request);
     }
 }
