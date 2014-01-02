@@ -1,6 +1,6 @@
 {
     "name": "desyncr/connected-zmq",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "description": "Zend2 Module for realtime and persistent notifications - zmq adapter",
     "type": "module",
     "license": "GPL-3.0+",
@@ -30,8 +30,7 @@
         "desyncr/connected": "0.2.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.28",
-        "whatthejeff/nyancat-phpunit-resultprinter": "dev-master"
+        "phpunit/phpunit": "3.*"
     },
     "autoload": {
         "psr-0": {
