@@ -17,7 +17,7 @@ class WebsocketDaemon
     public function execute($request)
     {
         $loop   = React\EventLoop\Factory::create();
-        $pusher = new $this->pusher;
+        $pusher = is_object($this->pusher) ? $this->pusher : new $this->pusher;
 
         $this->launchZeroMQ($this->broker_bind, $this->broker_on, $loop, $pusher);
 

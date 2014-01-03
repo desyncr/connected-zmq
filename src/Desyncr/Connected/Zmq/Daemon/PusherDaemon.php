@@ -7,8 +7,6 @@ use Ratchet\Wamp\WampServerInterface;
 
 class PusherDaemon implements WampServerInterface
 {
-    protected $sessions = null;
-
     /**
      * A lookup of all the topics clients have subscribed to
      */
@@ -29,8 +27,8 @@ class PusherDaemon implements WampServerInterface
     {
         $entryData = json_decode($entry, true);
         $channel = $entryData['id'];
-        if (array_key_exists($channel, $subscribedTopics)) {
-            $topic = $subscribedTopics[$channel];
+        if (array_key_exists($channel, $this->subscribedTopics)) {
+            $topic = $this->subscribedTopics[$channel];
             $topic->broadcast($entryData);
         }
 
