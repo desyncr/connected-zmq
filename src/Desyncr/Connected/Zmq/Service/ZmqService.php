@@ -30,6 +30,8 @@ class ZmqService extends AbstractService
                 $this->socket->send($frame->serialize());
             }
 
+            $this->frames = array();
+
         } else {
             throw new \Exception('Couldn\'t connect with socket server');
         }
