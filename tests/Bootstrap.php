@@ -9,4 +9,4 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
 }
 
 /** @var $loader \Composer\Autoload\ClassLoader */
-$loader->add('ConnectedZmqTests\\', __DIR__);
+$loader->add('Desyncr\\Connected\\ZmqTest\\', __DIR__);

@@ -1,6 +1,20 @@
 <?php
+/**
+ * Desyncr\Connected\ZmqTest\Service
+ *
+ * PHP version 5.4
+ *
+ * @category General
+ * @package  Desyncr\Connected\ZmqTest\Service
+ * @author   Dario Cavuotti <dc@syncr.com.ar>
+ * @license  https://www.gnu.org/licenses/gpl.html GPL-3.0+
+ * @version  GIT:<>
+ * @link     https://github.com/desyncr
+ */
+namespace Desyncr\Connected\ZmqTest\Service;
 
-namespace Desyncr\Connected\Zmq\Service;
+use Desyncr\Connected\Zmq\Options\ZmqServiceOptions;
+use Desyncr\Connected\Zmq\Service\ZmqService;
 
 class ZmqClient
 {
@@ -11,7 +25,6 @@ class ZmqClient
 
 class Socket
 {
-
     public function connect()
     {
     }
@@ -57,7 +70,8 @@ class ZmqServiceTest extends \PHPUnit_Framework_TestCase
             ->method('getSocket')
             ->will($this->returnValue($this->sockMock));
 
-      $this->object = new ZmqService($this->mock, $this->defaults);
+        $options = new ZmqServiceOptions($this->defaults);
+        $this->object = new ZmqService($this->mock, $options);
     }
 
     /**
@@ -73,16 +87,17 @@ class ZmqServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testConfiguration()
     {
-        $options = array(
+        $config = array(
             'host' => 'tpc://127.0.0.1',
             'port' => 5555,
         );
+        $options = new ZmqServiceOptions($config);
 
         $this->object = new ZmqService($this->mock, $options);
-        $address = $options['host'] . ':' . $options['port'];
-        $this->assertEquals($address, $this->object->getOption('addr'));
+        $address = $config['host'] . ':' . $config['port'];
+        $this->assertEquals($address, $this->object->getAddress());
 
-        $this->assertEquals($options['host'], $this->object->getOption('host'));
+        $this->assertEquals($config['host'], $this->object->getOptions()->getHost());
 
     }
 
