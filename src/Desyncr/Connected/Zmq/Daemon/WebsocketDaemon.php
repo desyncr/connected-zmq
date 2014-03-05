@@ -58,7 +58,7 @@ class WebsocketDaemon
         $options = $this->getOptions();
 
         $pusher = $options->getPusher();
-        $pusher = new $pusher;
+        $pusher = is_string($pusher) ? new $pusher : $pusher;
 
         $this->launchZeroMQ(
             $options->getBrokerBindAddress(),
