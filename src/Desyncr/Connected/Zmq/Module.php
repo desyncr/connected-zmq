@@ -28,8 +28,7 @@ use Zend\ModuleManager\Feature\ServiceProviderInterface;
  */
 class Module implements
     AutoloaderProviderInterface,
-    ConfigProviderInterface,
-    ServiceProviderInterface
+    ConfigProviderInterface
 {
     /**
      * getAutoloaderConfig
@@ -53,18 +52,5 @@ class Module implements
     public function getConfig()
     {
         return include __DIR__ . '/../../../../config/module.config.php';
-    }
-
-    /**
-     * getServiceConfig
-     *
-     * @return mixed
-     */
-    public function getServiceConfig()
-    {
-        return array(
-            'host' => 'tcp://127.0.0.1',
-            'port' => 5555
-        );
     }
 }

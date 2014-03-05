@@ -22,6 +22,15 @@ return array(
             'Desyncr\Connected\Zmq\Service\ZmqService'
             => 'Desyncr\Connected\Zmq\Factory\ZmqServiceFactory',
 
+            'Desyncr\Connected\Zmq\Daemon\WebsocketDaemon'
+            => 'Desyncr\Connected\Zmq\Factory\WebsocketDaemonFactory',
+
+            'Desyncr\Connected\Zmq\Options\WebsocketDaemonOptions'
+            => 'Desyncr\Connected\Zmq\Factory\WebsocketDaemonOptionsFactory',
+
+            'Desyncr\Connected\Zmq\Options\ZmqServiceOptions'
+            => 'Desyncr\Connected\Zmq\Factory\ZmqServiceOptionsFactory',
+
             'Desyncr\Connected\Zmq\Client\ZmqClient'
             => function(ServiceLocatorInterface $sm) {
                 return new \ZMQContext();
