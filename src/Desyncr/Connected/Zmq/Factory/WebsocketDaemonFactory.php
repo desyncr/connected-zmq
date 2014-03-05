@@ -13,13 +13,12 @@
  */
 namespace Desyncr\Connected\Zmq\Factory;
 
-use Desyncr\Connected\Factory\AbstractServiceFactory;
-use Desyncr\Connected\Zmq\Service\ZmqService;
+use Desyncr\Connected\Zmq\Daemon\WebsocketDaemon;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Class ZmqServiceFactory
+ * Class WebsocketDaemonFactory
  *
  * @category General
  * @package  Desyncr\Connected\Zmq\Factory
@@ -27,8 +26,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * @license  https://www.gnu.org/licenses/gpl.html GPL-3.0+
  * @link     https://github.com/desyncr
  */
-class ZmqServiceFactory extends AbstractServiceFactory implements
-    FactoryInterface
+class WebsocketDaemonFactory implements FactoryInterface
 {
     /**
      * createService
@@ -39,14 +37,10 @@ class ZmqServiceFactory extends AbstractServiceFactory implements
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $zmq = $serviceLocator->get(
-            'Desyncr\Connected\Zmq\Client\ZmqClient'
-        );
-        /** @var \Zend\Stdlib\AbstractOptions $options */
         $options = $serviceLocator->get(
-            'Desyncr\Connected\Zmq\Options\ZmqServiceOptions'
+            'Desyncr\Connected\Zmq\Options\WebsocketDaemonOptions'
         );
-
-        return new ZmqService($zmq, $options);
+        return new WebsocketDaemon($options);
     }
 }
+ 

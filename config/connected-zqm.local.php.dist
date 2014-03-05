@@ -1,9 +1,33 @@
 <?php
+/**
+ * Desyncr\Connected\Zmq
+ *
+ * PHP version 5.4
+ *
+ * @category General
+ * @package  Desyncr\Connected\Zmq
+ * @author   Dario Cavuotti <dc@syncr.com.ar>
+ * @license  https://www.gnu.org/licenses/gpl.html GPL-3.0+
+ * @version  GIT:<>
+ * @link     https://github.com/desyncr
+ */
+
 return array(
-    'connect' => array(
+    'connected' => array(
         'zqm-adapter' => array(
-            'host' =>  'tcp://127.0.0.1',
-            'port' => 5555
+            'socket' => array(
+                'host' => 'tcp://127.0.0.1',
+                'port' => 5555,
+                'socket_name' => 'websocket-pusher',
+                'socket_type' => \ZMQ::SOCKET_PUSH
+            ),
+            'daemon' => array(
+                'ws_bind' => '0.0.0.0',
+                'ws_port' => 8080,
+                'pusher' => 'Desyncr\Connected\Zmq\Daemon\PusherDaemon',
+                'broker_on' => 'onNotification',
+                'broker_bind' => 'tcp://127.0.0.1:5555'
+            )
         )
     )
 );
