@@ -58,7 +58,7 @@ class WebsocketDaemonOptions extends AbstractOptions
      *
      * @return mixed
      */
-    public function setBrokerBindAddress($bind)
+    public function setBrokerBind($bind)
     {
         $this->broker_bind = $bind;
     }
@@ -68,7 +68,7 @@ class WebsocketDaemonOptions extends AbstractOptions
      *
      * @return mixed
      */
-    public function getBrokerBindAddress()
+    public function getBrokerBind()
     {
         return $this->broker_bind;
     }
@@ -80,7 +80,7 @@ class WebsocketDaemonOptions extends AbstractOptions
      *
      * @return mixed
      */
-    public function setBrokerOnHandler($on)
+    public function setBrokerOn($on)
     {
         $this->broker_on = $on;
     }
@@ -90,7 +90,7 @@ class WebsocketDaemonOptions extends AbstractOptions
      *
      * @return mixed
      */
-    public function getBrokerOnHandler()
+    public function getBrokerOn()
     {
         return $this->broker_on;
     }
@@ -102,7 +102,7 @@ class WebsocketDaemonOptions extends AbstractOptions
      *
      * @return mixed
      */
-    public function setWsBindAddress($bind)
+    public function setWsBind($bind)
     {
         $this->ws_bind = $bind;
     }
@@ -112,7 +112,7 @@ class WebsocketDaemonOptions extends AbstractOptions
      *
      * @return mixed
      */
-    public function getWsBindAddress()
+    public function getWsBind()
     {
         return $this->ws_bind;
     }

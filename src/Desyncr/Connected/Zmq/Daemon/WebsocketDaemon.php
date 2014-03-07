@@ -61,13 +61,13 @@ class WebsocketDaemon
         $pusher = is_string($pusher) ? new $pusher : $pusher;
 
         $this->launchZeroMQ(
-            $options->getBrokerBindAddress(),
-            $options->getBrokerOnHandler(),
+            $options->getBrokerBind(),
+            $options->getBrokerOn(),
             $loop,
             $pusher
         );
         $this->launchReact(
-            $options->getWsBindAddress(),
+            $options->getWsBind(),
             $options->getWsPort(),
             $loop,
             $pusher
