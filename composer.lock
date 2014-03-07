@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a7d12962734f6963f407624f9c6497ce",
+    "hash": "7a74050c80f8669a7995c2a5f2087e38",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -56,16 +56,16 @@
         },
         {
             "name": "desyncr/connected",
-            "version": "dev-development",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/desyncr/connected.git",
-                "reference": "f2389a545acb08defdac4d374685aef0b26d317c"
+                "reference": "d0ffef257a713a360a3fe2b47890322c3f139904"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/desyncr/connected/zipball/f2389a545acb08defdac4d374685aef0b26d317c",
-                "reference": "f2389a545acb08defdac4d374685aef0b26d317c",
+                "url": "https://api.github.com/repos/desyncr/connected/zipball/d0ffef257a713a360a3fe2b47890322c3f139904",
+                "reference": "d0ffef257a713a360a3fe2b47890322c3f139904",
                 "shasum": ""
             },
             "require": {
@@ -105,10 +105,10 @@
                 "zf2"
             ],
             "support": {
-                "source": "https://github.com/desyncr/connected/tree/development",
+                "source": "https://github.com/desyncr/connected/tree/v0.3.0",
                 "issues": "https://github.com/desyncr/connected/issues"
             },
-            "time": "2014-03-05 07:13:33"
+            "time": "2014-03-06 19:58:49"
         },
         {
             "name": "evenement/evenement",
@@ -644,16 +644,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c"
+                "reference": "b61c596812b043acadb90d442234d1d0ae01aaaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/69f059f31b0efd98afb94bf691140b8c696a627c",
-                "reference": "69f059f31b0efd98afb94bf691140b8c696a627c",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b61c596812b043acadb90d442234d1d0ae01aaaf",
+                "reference": "b61c596812b043acadb90d442234d1d0ae01aaaf",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.3.23",
+                "zendframework/zendxml": "~1.0-dev"
             },
             "replace": {
                 "zendframework/zend-authentication": "self.version",
@@ -753,7 +754,52 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-05 00:21:49"
+            "time": "2014-03-07 07:50:11"
+        },
+        {
+            "name": "zendframework/zendxml",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/ZendXml.git",
+                "reference": "559b34f426d33a11c3db118e00ce14bb8dc64e5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/ZendXml/zipball/559b34f426d33a11c3db118e00ce14bb8dc64e5f",
+                "reference": "559b34f426d33a11c3db118e00ce14bb8dc64e5f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "*@dev",
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ZendXml": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Utility library for XML usage, best practices, and security in PHP",
+            "homepage": "http://packages.zendframework.com/",
+            "keywords": [
+                "security",
+                "xml",
+                "zf2"
+            ],
+            "time": "2014-03-05 22:25:44"
         }
     ],
     "packages-dev": [
@@ -1007,12 +1053,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "316a5478cc552056ccd3bd27fa0aa8645b2d0a59"
+                "reference": "4dbc3ab5de25a9ffd07796519f9f7f4aaddc37e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/316a5478cc552056ccd3bd27fa0aa8645b2d0a59",
-                "reference": "316a5478cc552056ccd3bd27fa0aa8645b2d0a59",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4dbc3ab5de25a9ffd07796519f9f7f4aaddc37e0",
+                "reference": "4dbc3ab5de25a9ffd07796519f9f7f4aaddc37e0",
                 "shasum": ""
             },
             "require": {
@@ -1073,7 +1119,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-02-28 10:34:19"
+            "time": "2014-03-05 12:52:24"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1186,9 +1232,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "desyncr/connected": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.3.0"
     },

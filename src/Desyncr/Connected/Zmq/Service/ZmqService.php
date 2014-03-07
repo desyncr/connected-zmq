@@ -13,9 +13,8 @@
  */
 namespace Desyncr\Connected\Zmq\Service;
 
-use Desyncr\Connected\Service\ServiceBase;
+use Desyncr\Connected\Service\AbstractService;
 use Desyncr\Connected\Zmq\Options\ZmqServiceOptions;
-use Zend\Stdlib\AbstractOptions;
 
 /**
  * Class ZmqService
@@ -26,7 +25,7 @@ use Zend\Stdlib\AbstractOptions;
  * @license  https://www.gnu.org/licenses/gpl.html GPL-3.0+
  * @link     https://github.com/desyncr
  */
-class ZmqService extends ServiceBase
+class ZmqService extends AbstractService
 {
     /**
      * @var Object
@@ -37,6 +36,16 @@ class ZmqService extends ServiceBase
      * @var Object
      */
     protected $socket = null;
+
+    /**
+     * @var
+     */
+    protected $options;
+
+    /**
+     * @var array
+     */
+    protected $frames = array();
 
     /**
      * Constructor
@@ -65,9 +74,11 @@ class ZmqService extends ServiceBase
     public function dispatch()
     {
         if ($this->getSocket()->connect($this->getAddress())) {
-
             foreach ($this->frames as $frame) {
-                $this->socket->send($frame->serialize());
+                if (is_object($frame)) {
+                    $frame = json_encode($frame->serialize());
+                }
+                $this->getSocket()->send($frame);
             }
 
             $this->frames = array();
@@ -132,5 +143,45 @@ class ZmqService extends ServiceBase
         /** @var ZmqServiceOptions $options */
         $options = $this->getOptions();
         return $options->getHost() . ':' . $options->getPort();
+    }
+
+    /**
+     * getOptions
+     *
+     * @return Object
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * setOptions
+     *
+     * @param ZmqServiceOptions $options Options
+     *
+     * @return null
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+    }
+
+    /**
+     * add
+     *
+     * @param Object $frame  Frame
+     * @param String $key    Key
+     * @param mixed  $target Target
+     *
+     * @return mixed|void
+     */
+    public function add($key, $frame, $target = null)
+    {
+        if (is_object($frame)) {
+            $frame->setId($key);
+        }
+
+        array_push($this->frames, $frame);
     }
 }
