@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7eace5b61072c1f1852b480defc2a3ea",
+    "hash": "b1516b281e67f2f4dde1ce65418d7f57",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -56,16 +56,16 @@
         },
         {
             "name": "desyncr/connected",
-            "version": "0.3.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/desyncr/connected.git",
-                "reference": "d0ffef257a713a360a3fe2b47890322c3f139904"
+                "reference": "de61174881bee461b9f1266ff7fed9196a8223ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/desyncr/connected/zipball/d0ffef257a713a360a3fe2b47890322c3f139904",
-                "reference": "d0ffef257a713a360a3fe2b47890322c3f139904",
+                "url": "https://api.github.com/repos/desyncr/connected/zipball/de61174881bee461b9f1266ff7fed9196a8223ba",
+                "reference": "de61174881bee461b9f1266ff7fed9196a8223ba",
                 "shasum": ""
             },
             "require": {
@@ -105,10 +105,10 @@
                 "zf2"
             ],
             "support": {
-                "source": "https://github.com/desyncr/connected/tree/v0.3.0",
+                "source": "https://github.com/desyncr/connected/tree/master",
                 "issues": "https://github.com/desyncr/connected/issues"
             },
-            "time": "2014-03-06 19:58:49"
+            "time": "2014-03-27 14:30:48"
         },
         {
             "name": "evenement/evenement",
@@ -593,16 +593,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "eae69c6e62a0ce9e4a8518ff2aed6803b5b6aad5"
+                "reference": "a62e173e81a067eae72b1c40ffd9d007b6568da9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/eae69c6e62a0ce9e4a8518ff2aed6803b5b6aad5",
-                "reference": "eae69c6e62a0ce9e4a8518ff2aed6803b5b6aad5",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/a62e173e81a067eae72b1c40ffd9d007b6568da9",
+                "reference": "a62e173e81a067eae72b1c40ffd9d007b6568da9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.4"
             },
             "type": "library",
             "extra": {
@@ -636,7 +639,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-04 07:36:44"
+            "time": "2014-03-26 11:51:10"
         },
         {
             "name": "zendframework/zendframework",
@@ -644,12 +647,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "b61c596812b043acadb90d442234d1d0ae01aaaf"
+                "reference": "deeb778346fb5c9404e869ac1318257518c4bf97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/b61c596812b043acadb90d442234d1d0ae01aaaf",
-                "reference": "b61c596812b043acadb90d442234d1d0ae01aaaf",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/deeb778346fb5c9404e869ac1318257518c4bf97",
+                "reference": "deeb778346fb5c9404e869ac1318257518c4bf97",
                 "shasum": ""
             },
             "require": {
@@ -735,8 +738,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev",
-                    "dev-develop": "2.3-dev"
+                    "dev-master": "2.3-dev",
+                    "dev-develop": "2.4-dev"
                 }
             },
             "autoload": {
@@ -754,7 +757,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2014-03-07 07:50:11"
+            "time": "2014-03-27 09:15:51"
         },
         {
             "name": "zendframework/zendxml",
@@ -1053,12 +1056,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4dbc3ab5de25a9ffd07796519f9f7f4aaddc37e0"
+                "reference": "619f9179d6d30be8fc7333b5eaba9132dbaa8142"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4dbc3ab5de25a9ffd07796519f9f7f4aaddc37e0",
-                "reference": "4dbc3ab5de25a9ffd07796519f9f7f4aaddc37e0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/619f9179d6d30be8fc7333b5eaba9132dbaa8142",
+                "reference": "619f9179d6d30be8fc7333b5eaba9132dbaa8142",
                 "shasum": ""
             },
             "require": {
@@ -1119,7 +1122,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-03-05 12:52:24"
+            "time": "2014-03-26 11:35:32"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

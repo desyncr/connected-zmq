@@ -172,11 +172,10 @@ class ZmqService extends AbstractService
      *
      * @param Object $frame  Frame
      * @param String $key    Key
-     * @param mixed  $target Target
      *
      * @return mixed|void
      */
-    public function add($key, $frame, $target = null)
+    public function add($key, $frame)
     {
         if (is_object($frame)) {
             $frame->setId($key);
