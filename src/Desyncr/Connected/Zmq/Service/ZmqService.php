@@ -177,10 +177,6 @@ class ZmqService extends AbstractService
      */
     public function add($key, $frame)
     {
-        if (is_object($frame)) {
-            $frame->setId($key);
-        }
-
         array_push($this->frames, $frame);
     }
 }
